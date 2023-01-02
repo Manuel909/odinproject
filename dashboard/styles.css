@@ -1,0 +1,306 @@
+:root {
+    --main-2nd-txt-clr: #666;
+    --dark-blue: #155b84;
+    --light-blue: #e2eef7;
+    --orange: #db7b22;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+}
+
+body {
+    display: grid;
+    grid-template-columns: minmax(min-content, 15vw) 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: "sidebar header" 
+                         "sidebar main";
+    height: 100vh;
+}
+
+img {
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    align-self: center;
+}
+
+/* =================================================== */
+.header {
+    background-color: #fff;
+    grid-area: header;
+    display: grid;
+    grid-template-columns: 1fr auto auto auto;
+    /*// grid-template-rows: min-content min-content; */
+    row-gap: 15px;
+    column-gap: max(12px, 3%);
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 2px #ccc;
+    position: relative;  /** so that z-index can be used*/
+    z-index: 1;          /** so that box-shadow is visible */
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.search-box img {
+    height: 1rem;
+    width: 1rem;
+    position: relative;
+    top: 2px;
+}
+.header input {
+    border: 0;
+    border-radius: 14px / 50%;
+    background-color: var(--light-blue);
+    height: 1.4rem;
+    width: min(650px, 85%);
+    padding: 0 12px;
+    font-size: 16px;
+}
+.header input:focus {
+    outline: 1px solid var(--dark-blue);
+}
+
+.notification {
+    position: relative;
+}
+.notification .bell {
+    position: absolute;
+    right: -1.4vw;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+.on {
+    opacity: 0;
+}
+
+.header .profile {
+    grid-area: 1 / 3 / 2 / 5;
+    display: flex;
+    align-items: center;
+    margin: 0 0.75rem;
+}
+.profile p {
+    margin: 0 auto;
+    font-weight: 600;
+    max-width: 10ch;
+}
+.profile a {
+    display: flex;
+}
+
+.header .greeting {
+    display: grid;
+    grid-template-columns: min-content max-content;
+    grid-template-rows: 1fr 1fr;
+    column-gap: 15px;
+}
+.greeting img {
+    grid-area: 1 / 1 / 3 / 2;
+    width: 55px;
+    height: 55px;
+}
+.greeting span {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    align-self: center;
+}
+.greeting p {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.header button {
+    color: #fff;
+    background-color: #186b9a;
+    padding: 0.4rem;
+    border: 0;
+    border-radius: 15% / 50%;
+    width: 5rem;
+    height: min-content;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    align-self: center;
+}
+
+/* =================================================== */
+.sidebar {
+    background: linear-gradient(90deg, var(--dark-blue) 50%, #0e3d58 90%);
+    color: #fff;
+    grid-area: sidebar;
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    gap: 1.8rem;
+    padding: 1rem;
+}
+
+h2 {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    letter-spacing: 2px;
+    gap: 10px;
+    margin: 3px 1.2rem 5px -0.5rem;
+}
+
+.sidebar img {
+    width: 24px;
+    height: 24px;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    gap: 18px;
+    margin-bottom: 15px;
+}
+
+/* =================================================== */
+.main-content {
+    background-color: var(--light-blue);
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    gap: 15px;
+    padding: 2.75rem 1rem 2rem 16px;
+}
+.main-content .cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    /*// grid-auto-rows: min-content; */
+    /*// align-content: start; */
+    gap: 15px;
+    position: relative;
+}
+.main-content .cards-container div {
+    /*// height: max(min-content, 200px); */
+    background-color: #fff;
+    padding: 2rem 1.4rem;
+    border-radius: 6px;
+    border-left: 6px solid var(--orange);
+    box-shadow: 2px 2px 3px #ccc;
+    position: relative;
+}
+.card p {
+    font-size: 17px;
+    font-weight: 600;
+}
+.card span {
+    font-size: 15px;
+    color: var(--main-2nd-txt-clr);
+}
+.card a {
+    position: absolute;
+    right: 0.7rem;
+    bottom: 0.5rem;
+    color: var(--orange);
+}
+.card a:first-of-type {
+    transform: translateX(-100%);
+    margin-right: 12px;
+}
+
+.cards-container::before {
+    position: absolute;
+    top: -2.5ch;
+    content: "Your Projects";
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.main-content .right-column {
+    display: grid;
+    grid-template-rows: min-content min-content;
+    /*// grid-template-rows: 1fr 1fr; */
+}
+
+.announcements {
+    background-color: #fff;
+    padding: 1.2rem;
+    border-radius: 6px;
+    position: relative;
+    box-shadow: 2px 2px 3px #ccc;
+}
+.announcements::before {
+    position: absolute;
+    top: -2.5ch;
+    left: 0;
+    content: "Announcements";
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.announcements p {
+    font-size: 16px;
+    font-weight: 600;
+}
+.announcements span {
+    font-size: 13px;
+    color: var(--main-2nd-txt-clr);
+}
+
+hr {
+    border-bottom: 0;
+    border-right: 0;
+    margin: 0.8rem 0;
+}
+
+.trending {
+    background-color: #fff;
+    padding: 1.2rem;
+    border-radius: 6px;
+    margin-top: 2.75rem;
+    position: relative;
+    box-shadow: 2px 2px 3px #ccc;
+}
+.trending::before {
+    position: absolute;
+    top: -2.5ch;
+    left: 0;
+    content: "Trending";
+    font-size: 25px;
+    font-weight: 900;
+}
+.trending p {
+    font-size: 15px;
+    align-self: end;
+}
+.trending span {
+    font-size: 15px;
+    color: var(--main-2nd-txt-clr);
+    align-self: start;
+}
+
+.trending div {
+    display: grid;
+    grid-template-columns: min-content max-content;
+    grid-template-rows: 1fr 1fr;
+    column-gap: 15px;
+}
+.trending div a {
+    grid-area: 1 / 1 / 3 / 2;
+    display: flex;
+}
+
+.trending div + div {
+    margin-top: 1rem;
+}
