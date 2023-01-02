@@ -108,8 +108,9 @@ input {
   border: 1px;
   border-style: solid;
   border-color: rgba(0, 0, 0, 0.2);
-  border-radius: 2px;
+  border-radius: 10px;
   padding-left: 2px;
+  line-height: 2em;
 }
 
 
@@ -119,7 +120,7 @@ input:focus:invalid {
   border: 1px;
   border-style: solid;
   border-color: rgb(12, 101, 202);
-  border-radius: 2px;
+  border-radius: 10px;
   box-shadow: 2px 1px 6px rgb(12, 101, 202);
 }
 
@@ -128,7 +129,7 @@ input:invalid {
   border: 1px;
   border-style: solid;
   border-color: rgb(202, 12, 12);
-  border-radius: 2px;
+  border-radius: 10px;
   background-size: 20px;
   background-repeat: no-repeat;
   background-position: right;
@@ -138,6 +139,7 @@ input:valid {
   background-size: 20px;
   background-repeat: no-repeat;
   background-position: right;
+  border-radius: 10px;
 }
 
 .ignore:valid {
@@ -148,8 +150,10 @@ input:valid {
   border: 1px;
   border-style: solid;
   border-color: rgba(0, 0, 0, 0.2);
-  border-radius: 2px;
+  border-radius: 10px;
   background: none;
+  line-height: 2em;
+  
 }
 
 .input {
