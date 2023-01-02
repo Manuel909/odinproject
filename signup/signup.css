@@ -13,15 +13,19 @@
 }
 
 
-.logo-text:after{
+.logo-text{
   font-family: 'pacifico';
   font-size: 5rem;
+  color:white;
   position: absolute;
     top: 50%;
   left: 25%;
   transform: translate(-50%, -50%);
- box-shadow: inset 100px 20px 30px blue;
- background-color: green;
+ box-shadow: inset;
+ background-color: black;
+ width: 100%;
+ text-align: center;
+ opacity: 0.5;
 /*   margin: auto; */
 }
 
